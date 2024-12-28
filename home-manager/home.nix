@@ -57,10 +57,17 @@
   home.packages = with pkgs.unstable;
     [
       anki-bin
+      neofetch
+      zip
+      xz
+      unzip
+      # flatpak
       libsecret
+      # hyprpanel
+      brightnessctl
+      pamixer
+      icomoon-feather
       grimblast
-      hyprpicker
-      hyprsunset
       btop
       matugen
       swww
@@ -71,15 +78,9 @@
       libgtop
       gnome-bluetooth
       bun
-      neofetch
-      mako
-      zip
-      xz
-      unzip
-      brightnessctl
-      pamixer
-      icomoon-feather
-
+      # hyprland
+      hyprpicker
+      hyprsunset
       # fonts
       font-awesome
       powerline-fonts
