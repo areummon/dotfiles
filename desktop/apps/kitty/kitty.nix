@@ -1,6 +1,9 @@
-{ pkgs, lib, config, ...}:
-
 {
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   programs.kitty = {
     enable = true;
     package = pkgs.unstable.kitty;
@@ -8,7 +11,7 @@
     font.name = "MesloLG";
     extraConfig = lib.strings.concatStrings [
       ''
-      font_size 14.0
+        font_size 14.0
       ''
     ];
   };

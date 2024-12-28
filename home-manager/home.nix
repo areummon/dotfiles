@@ -1,7 +1,12 @@
-{ inputs, outputs, lib, config, pkgs, ... }:
-
 {
-  # You can import other home-manager modules here 
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
+  # You can import other home-manager modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/home-manager):
     # outputs.homeManagerModules.example
@@ -15,7 +20,7 @@
     # ./nvim.nix
     ../desktop
   ];
-  
+
   nixpkgs = {
     # You can add overlays here
     overlays = [
@@ -50,49 +55,49 @@
   # Add stuff for your user as you see fit:
   # home.packages = with pkgs; [ steam ];
   home.packages = [
-     pkgs.unstable.anki-bin
-     pkgs.unstable.libsecret
-     pkgs.unstable.grimblast
-     pkgs.unstable.hyprpicker
-     pkgs.unstable.hyprsunset
-     pkgs.unstable.btop
-     pkgs.unstable.matugen
-     pkgs.unstable.swww
-     pkgs.unstable.dart-sass
-     pkgs.unstable.wl-clipboard
-     pkgs.unstable.bluez
-     pkgs.unstable.bluez-tools
-     pkgs.unstable.libgtop
-     pkgs.unstable.gnome-bluetooth
-     pkgs.unstable.bun
-     pkgs.unstable.neofetch
-     pkgs.unstable.mako
-     pkgs.unstable.zip
-     pkgs.unstable.xz
-     pkgs.unstable.unzip
-     pkgs.unstable.brightnessctl
-     pkgs.unstable.pamixer
-     pkgs.unstable.icomoon-feather
-     pkgs.unstable.ripgrep
-     pkgs.hyprpanel
-     
-     # fonts
-     pkgs.unstable.font-awesome
-     pkgs.unstable.powerline-fonts
-     pkgs.unstable.powerline-symbols
-     pkgs.unstable.iosevka
-     pkgs.unstable.fira-code-symbols
-     pkgs.unstable.nerd-fonts.jetbrains-mono
-     pkgs.unstable.nerd-fonts.fira-code
-     pkgs.unstable.nerd-fonts.symbols-only
-     pkgs.unstable.nerd-fonts.meslo-lg
+    pkgs.unstable.anki-bin
+    pkgs.unstable.libsecret
+    pkgs.unstable.grimblast
+    pkgs.unstable.hyprpicker
+    pkgs.unstable.hyprsunset
+    pkgs.unstable.btop
+    pkgs.unstable.matugen
+    pkgs.unstable.swww
+    pkgs.unstable.dart-sass
+    pkgs.unstable.wl-clipboard
+    pkgs.unstable.bluez
+    pkgs.unstable.bluez-tools
+    pkgs.unstable.libgtop
+    pkgs.unstable.gnome-bluetooth
+    pkgs.unstable.bun
+    pkgs.unstable.neofetch
+    pkgs.unstable.mako
+    pkgs.unstable.zip
+    pkgs.unstable.xz
+    pkgs.unstable.unzip
+    pkgs.unstable.brightnessctl
+    pkgs.unstable.pamixer
+    pkgs.unstable.icomoon-feather
+    pkgs.unstable.ripgrep
+    pkgs.hyprpanel
+
+    # fonts
+    pkgs.unstable.font-awesome
+    pkgs.unstable.powerline-fonts
+    pkgs.unstable.powerline-symbols
+    pkgs.unstable.iosevka
+    pkgs.unstable.fira-code-symbols
+    pkgs.unstable.nerd-fonts.jetbrains-mono
+    pkgs.unstable.nerd-fonts.fira-code
+    pkgs.unstable.nerd-fonts.symbols-only
+    pkgs.unstable.nerd-fonts.meslo-lg
   ];
 
   home.sessionVariables = {
-     #Optional, hint Electron apps to use Wayland:
-     NIXOS_OZONE_WL = "1";
+    #Optional, hint Electron apps to use Wayland:
+    NIXOS_OZONE_WL = "1";
   };
- 
+
   # Line for fonts to work
   fonts.fontconfig.enable = true;
 

@@ -1,19 +1,22 @@
-{ pkgs, lib, config, ... }:
-
 {
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   programs.fd = {
     enable = true;
     package = pkgs.unstable.fd;
     hidden = true;
     ignores = [
-	".cache/"
-	".firefox/"
-	".mozilla/"
-	".local/state/nix/profiles/"
-	".local/share/Trash/"
-        ".var/"
-        ".local/share/fonts/"
-        ".local/share/flatpak/"
+      ".cache/"
+      ".firefox/"
+      ".mozilla/"
+      ".local/state/nix/profiles/"
+      ".local/share/Trash/"
+      ".var/"
+      ".local/share/fonts/"
+      ".local/share/flatpak/"
     ];
   };
 }

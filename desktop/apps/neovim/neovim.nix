@@ -1,6 +1,9 @@
-{ pkgs, lib, config, ... }:
-
 {
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   programs.neovim = {
     enable = true;
     package = pkgs.unstable.neovim-unwrapped;
@@ -16,7 +19,7 @@
       nvim-web-devicons
       telescope-nvim
       telescope-fzf-native-nvim
-      # Treesitter 
+      # Treesitter
       nvim-treesitter
     ];
     extraConfig = builtins.readFile ./init.vim;

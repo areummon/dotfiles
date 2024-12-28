@@ -1,5 +1,9 @@
-{ pkgs, config, lib, ... }:
 {
+  pkgs,
+  config,
+  lib,
+  ...
+}: {
   services.hyprpaper = {
     enable = false;
     package = pkgs.unstable.hyprpaper;

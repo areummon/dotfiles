@@ -1,6 +1,9 @@
-{ pkgs, lib, config, ... }:
-
 {
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -17,13 +20,14 @@
       enable = true;
     };
     initExtra = lib.strings.concatStrings [
-       ''
-       source ~/.p10k.zsh
-       '' ''
-       if uwsm check may-start && uwsm select; then
-	    exec systemd-cat -t uwsm_start uwsm start default
-       fi
-       ''
+      ''
+        source ~/.p10k.zsh
+      ''
+      ''
+          if uwsm check may-start && uwsm select; then
+        exec systemd-cat -t uwsm_start uwsm start default
+          fi
+      ''
     ];
     plugins = [
       {

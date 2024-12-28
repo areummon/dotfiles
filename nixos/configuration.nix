@@ -1,18 +1,22 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{inputs, outputs, lib, config, pkgs, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.home-manager
-    ];
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    inputs.home-manager.nixosModules.home-manager
+  ];
 
   nixpkgs = {
-    # You can add overlays here 
+    # You can add overlays here
     overlays = [
       # Add overlays your own flake exports (from overlays and pkgs dir):
       outputs.overlays.additions
@@ -71,7 +75,7 @@
   networking = {
     networkmanager = {
       enable = true;
-      insertNameservers = [ "1.1.1.1" "8.8.8.8" ];
+      insertNameservers = ["1.1.1.1" "8.8.8.8"];
     };
   };
 
@@ -80,15 +84,15 @@
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-  
+
   # fcitx configuration
   i18n.inputMethod = {
     type = "fcitx5";
     enable = true;
     fcitx5.addons = with pkgs.unstable; [
-        fcitx5-mozc
-        fcitx5-hangul
-        fcitx5-gtk
+      fcitx5-mozc
+      fcitx5-hangul
+      fcitx5-gtk
     ];
     fcitx5.waylandFrontend = true;
   };
@@ -102,35 +106,35 @@
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users = {
-     # Add users
-     moka = {
-        isNormalUser = true;
-	description = "moka";
-	extraGroups = [ "networkmanager" "wheel" ];
-	openssh.authorizedKeys.keys = [
+    # Add users
+    moka = {
+      isNormalUser = true;
+      description = "moka";
+      extraGroups = ["networkmanager" "wheel"];
+      openssh.authorizedKeys.keys = [
         # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
-	];
-	packages = with pkgs; [];
-     };
+      ];
+      packages = with pkgs; [];
+    };
   };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    #  wget
     git
     vim
     wget
   ];
-  
+
   # Hyrpland NixOS module
   programs.hyprland.enable = true;
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
-  
+
   home-manager = {
     useUserPackages = true;
-    extraSpecialArgs = { inherit inputs outputs; };
+    extraSpecialArgs = {inherit inputs outputs;};
     users = {
       # Import your home-manager configuration
       moka = import ../home-manager/home.nix;
@@ -138,14 +142,14 @@
   };
 
   # UWSM configuration
-  programs.hyprland.withUWSM  = true;
+  programs.hyprland.withUWSM = true;
 
   programs.zsh.enable = true;
   users.users.moka.shell = pkgs.zsh;
 
   # Systemd configuration to turn off led of F4
   systemd.services.configure-sound-leds = rec {
-    wantedBy = [ "sound.target" ];
+    wantedBy = ["sound.target"];
     after = wantedBy;
     serviceConfig.type = "oneshot";
     script = ''
@@ -192,8 +196,8 @@
 
   # Font configuration
   fonts.packages = with pkgs.unstable; [
-     noto-fonts-cjk-sans
-     noto-fonts-cjk-serif
+    noto-fonts-cjk-sans
+    noto-fonts-cjk-serif
   ];
 
   # Open ports in the firewall.

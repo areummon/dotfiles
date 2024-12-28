@@ -85,8 +85,8 @@
         "toolkit.telemetry.unifiedIsOptIn" = false;
         "toolkit.telemetry.updatePing.enabled" = false;
 
-	# firefox config
-	"layout.css.devPixelsPerPx" = 1.5;
+        # firefox config
+        "layout.css.devPixelsPerPx" = 1.5;
 
         # Disable fx accounts
         "identity.fxaccounts.enabled" = false;
