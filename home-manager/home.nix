@@ -54,43 +54,44 @@
 
   # Add stuff for your user as you see fit:
   # home.packages = with pkgs; [ steam ];
-  home.packages = [
-    pkgs.unstable.anki-bin
-    pkgs.unstable.libsecret
-    pkgs.unstable.grimblast
-    pkgs.unstable.hyprpicker
-    pkgs.unstable.hyprsunset
-    pkgs.unstable.btop
-    pkgs.unstable.matugen
-    pkgs.unstable.swww
-    pkgs.unstable.dart-sass
-    pkgs.unstable.wl-clipboard
-    pkgs.unstable.bluez
-    pkgs.unstable.bluez-tools
-    pkgs.unstable.libgtop
-    pkgs.unstable.gnome-bluetooth
-    pkgs.unstable.bun
-    pkgs.unstable.neofetch
-    pkgs.unstable.mako
-    pkgs.unstable.zip
-    pkgs.unstable.xz
-    pkgs.unstable.unzip
-    pkgs.unstable.brightnessctl
-    pkgs.unstable.pamixer
-    pkgs.unstable.icomoon-feather
-    pkgs.hyprpanel
+  home.packages = with pkgs.unstable;
+    [
+      anki-bin
+      libsecret
+      grimblast
+      hyprpicker
+      hyprsunset
+      btop
+      matugen
+      swww
+      dart-sass
+      wl-clipboard
+      bluez
+      bluez-tools
+      libgtop
+      gnome-bluetooth
+      bun
+      neofetch
+      mako
+      zip
+      xz
+      unzip
+      brightnessctl
+      pamixer
+      icomoon-feather
 
-    # fonts
-    pkgs.unstable.font-awesome
-    pkgs.unstable.powerline-fonts
-    pkgs.unstable.powerline-symbols
-    pkgs.unstable.iosevka
-    pkgs.unstable.fira-code-symbols
-    pkgs.unstable.nerd-fonts.jetbrains-mono
-    pkgs.unstable.nerd-fonts.fira-code
-    pkgs.unstable.nerd-fonts.symbols-only
-    pkgs.unstable.nerd-fonts.meslo-lg
-  ];
+      # fonts
+      font-awesome
+      powerline-fonts
+      powerline-symbols
+      iosevka
+      fira-code-symbols
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.fira-code
+      nerd-fonts.symbols-only
+      nerd-fonts.meslo-lg
+    ]
+    ++ [pkgs.hyprpanel];
 
   home.sessionVariables = {
     #Optional, hint Electron apps to use Wayland:
