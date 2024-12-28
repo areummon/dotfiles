@@ -23,6 +23,9 @@
       # Treesitter
       nvim-treesitter
     ];
+    extraPackages = [
+      pkgs.unstable.ripgrep
+    ];
     extraConfig = builtins.readFile ./init.vim;
     extraLuaConfig = builtins.readFile ./init.lua;
   };

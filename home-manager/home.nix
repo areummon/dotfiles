@@ -78,7 +78,6 @@
     pkgs.unstable.brightnessctl
     pkgs.unstable.pamixer
     pkgs.unstable.icomoon-feather
-    pkgs.unstable.ripgrep
     pkgs.hyprpanel
 
     # fonts
