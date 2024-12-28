@@ -8,6 +8,7 @@
     enable = true;
     package = pkgs.unstable.neovim-unwrapped;
     viAlias = true;
+    vimAlias = true;
     plugins = with pkgs.unstable.vimPlugins; [
       melange-nvim
       vim-airline
