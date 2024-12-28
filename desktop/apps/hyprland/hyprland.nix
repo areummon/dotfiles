@@ -45,11 +45,11 @@
       };
       windowrulev2 = [
         #"opacity 0.8 override 0.75 override 1.0 override, class:firefox"
-        "opacity 1.0 override, title: ^(Youtube)$\n"
+        "opacity 1.0 override, title: (.*YouTube.*)$"
         # windows and workspaces
-        "suppressevent maximize, class:.*\n"
+        "suppressevent maximize, class:.*"
         # Fix some dragging issues with XWayland
-        "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0\n"
+        "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
         "nomaxsize, class:.*"
       ];
       layerrule = [
