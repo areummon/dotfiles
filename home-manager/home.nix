@@ -58,6 +58,7 @@
     [
       anki-bin
       neofetch
+      # util
       zip
       xz
       unzip

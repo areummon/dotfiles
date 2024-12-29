@@ -6,7 +6,7 @@
 }: {
   # Home nix imports for programs like hyprland
   imports = [
-    ./shell/zsh.nix
+    ./shell
     ./apps
     ./theme/theme.nix
   ];
