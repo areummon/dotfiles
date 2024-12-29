@@ -54,7 +54,6 @@
   # home.packages = with pkgs; [ steam ];
   home.packages = with pkgs.unstable;
     [
-      sushi
       papirus-icon-theme
       anki-bin
       neofetch
