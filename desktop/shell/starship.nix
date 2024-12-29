@@ -10,10 +10,10 @@
     enableZshIntegration = true;
     settings = {
       format = lib.concatStrings [
-        "[](#9A348E)"
+        "[](#A380B6)"
         "$os"
         "$username"
-        "[](bg:#DA627D fg:#9A348E)"
+        "[](bg:#DA627D fg:#A380B6)"
         "$directory"
         "[](fg:#DA627D bg:#FCA17D)"
         "$git_branch"
@@ -36,7 +36,11 @@
         "[](fg:#06969A bg:#33658A)"
         "$time"
         "[ ](fg:#33658A)"
+        "$line_break$character"
       ];
+      line_break = {
+        disabled = false;
+      };
       username = {
         show_always = true;
         style_user = "bg:#9A348E";
@@ -45,7 +49,7 @@
         disabled = true;
       };
       os = {
-        style = "bg:#9A348E";
+        style = "bg:#A380B6";
         disabled = false;
       };
       directory = {
@@ -142,6 +146,15 @@
         time_format = "%R"; # Hour:Minute Format
         style = "bg:#33658A";
         format = "[ ♥ $time ]($style)";
+      };
+      character = {
+        disabled = false;
+        success_symbol = "[‣](bold fg:#98971a)";
+        error_symbol = "[‣](bold fg:#DA627D)";
+        vimcmd_symbol = "[◂](bold fg:#98971a)";
+        vimcmd_replace_one_symbol = "[◂](bold fg:#A380B6)";
+        vimcmd_replace_symbol = "[◂](bold fg:#A380B6)";
+        vimcmd_visual_symbol = "[◂](bold fg:#d79921)";
       };
     };
   };
