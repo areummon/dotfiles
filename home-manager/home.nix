@@ -63,6 +63,7 @@
       xz
       unzip
       bat
+      superfile
       # flatpak
       libsecret
       # hyprpanel
