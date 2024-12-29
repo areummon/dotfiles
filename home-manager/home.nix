@@ -8,9 +8,7 @@
 }: {
   # You can import other home-manager modules here
   imports = [
-    # If you want to use modules your own flake exports (from modules/home-manager):
-    # outputs.homeManagerModules.example
-
+    # If you want to use modules your own flake exports (from modules/home-manager): outputs.homeManagerModules.example
     # Or modules exported from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModules.default
     inputs.hyprland.homeManagerModules.default
@@ -56,6 +54,8 @@
   # home.packages = with pkgs; [ steam ];
   home.packages = with pkgs.unstable;
     [
+      sushi
+      papirus-icon-theme
       anki-bin
       neofetch
       # util
@@ -63,7 +63,6 @@
       xz
       unzip
       bat
-      superfile
       # flatpak
       libsecret
       # hyprpanel

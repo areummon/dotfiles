@@ -143,6 +143,8 @@
     git
     vim
     wget
+    # Nautilus
+    unstable.nautilus
   ];
 
   # Hyrpland NixOS module
@@ -216,6 +218,9 @@
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
   ];
+
+  # Gnome requirements
+  programs.dconf.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
