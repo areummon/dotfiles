@@ -7,7 +7,7 @@ set shiftwidth=4 smarttab
 set tabstop=8 softtabstop=0
 
 " Color scheme configuration
-colorscheme melange
+"colorscheme melange
 
 " Airline configuration
 let g:airline_theme='bubblegum'

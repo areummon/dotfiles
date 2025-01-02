@@ -57,6 +57,7 @@
       papirus-icon-theme
       anki-bin
       neofetch
+      mpv
       # util
       zip
       xz
@@ -100,6 +101,10 @@
     NIXOS_OZONE_WL = "1";
   };
 
+  home.sessionPath = [
+    "$HOME/.local/share/flatpak/exports/bin"
+  ];
+
   # Line for fonts to work
   fonts.fontconfig.enable = true;
 
@@ -119,6 +124,18 @@
     enable = true;
     userName = "moka";
     userEmail = "minji@ciencias.unam.mx";
+  };
+
+  # nix-direnv configuration for programming environments
+  programs = {
+    direnv = {
+      enable = true;
+      package = pkgs.unstable.direnv;
+      enableBashIntegration = true;
+      enableZshIntegration = true;
+      nix-direnv.enable = true;
+    };
+    bash.enable = true;
   };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion

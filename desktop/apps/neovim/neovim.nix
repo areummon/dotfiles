@@ -10,7 +10,7 @@
     viAlias = true;
     vimAlias = true;
     plugins = with pkgs.unstable.vimPlugins; [
-      melange-nvim
+      kanagawa-nvim
       vim-airline
       vim-airline-themes
       indent-blankline-nvim
@@ -22,6 +22,7 @@
       telescope-fzf-native-nvim
       # Treesitter
       nvim-treesitter
+      nvim-treesitter-parsers.rust
     ];
     extraPackages = [
       pkgs.unstable.ripgrep
