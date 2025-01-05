@@ -11,6 +11,7 @@
     syntaxHighlighting.enable = true;
     shellAliases = {
       update = "sudo nixos-rebuild switch";
+      sd = "cd ~ && cd \$(find * -type d | fzf)";
     };
     history = {
       size = 10000;
@@ -18,9 +19,22 @@
     };
     initExtra = lib.strings.concatStrings [
       ''
-          if uwsm check may-start && uwsm select; then
+             if uwsm check may-start && uwsm select; then
         exec systemd-cat -t uwsm_start uwsm start default
-          fi
+             fi
+      ''
+      ''
+        autoload -Uz compinit && compinit
+        zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+      ''
+      ''
+        bindkey -v  # Enable vi mode
+        bindkey "$key[Up]" history-beginning-search-backward
+        bindkey "$key[Down]" history-beginning-search-forward
+        bindkey '^E' end-of-line
+      ''
+      ''
+        export KEYTIMEOUT=1  # Reduce mode switch delay
       ''
     ];
   };

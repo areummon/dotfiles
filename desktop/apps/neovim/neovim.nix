@@ -10,6 +10,7 @@
     viAlias = true;
     vimAlias = true;
     plugins = with pkgs.unstable.vimPlugins; [
+      trouble-nvim
       kanagawa-nvim
       vim-airline
       vim-airline-themes
@@ -23,6 +24,13 @@
       # Treesitter
       nvim-treesitter
       nvim-treesitter-parsers.rust
+      # lsp
+      nvim-lspconfig
+      # cmp
+      nvim-cmp
+      cmp-nvim-lsp
+      cmp_luasnip
+      luasnip
     ];
     extraPackages = [
       pkgs.unstable.ripgrep

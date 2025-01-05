@@ -6,8 +6,17 @@ set number
 set shiftwidth=4 smarttab
 set tabstop=8 softtabstop=0
 
-" Color scheme configuration
-"colorscheme melange
+" Copy to the system clipboard
+set clipboard=unnamedplus
+
+" Autoclosing pairs
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap {<CR> {<CR>}<ESC>O
+inoremap {;<CR> {<CR>};<ESC>O
 
 " Airline configuration
 let g:airline_theme='bubblegum'
