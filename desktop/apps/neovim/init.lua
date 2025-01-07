@@ -168,3 +168,24 @@ require('kanagawa').setup({
 
 -- setup must be called before loading
 vim.cmd("colorscheme kanagawa")
+
+-- Luasnip configuration for snippets
+luasnip.config.set_config({ -- Setting LuaSnip config
+
+  -- Enable autotriggered snippets
+  enable_autosnippets = true,
+
+  -- Use Tab (or some other key if you prefer) to trigger visual selection
+  store_selection_keys = "<Tab>",
+
+  -- Text in the repeated node update as typing
+  update_events = 'TextChanged,TextChangedI',
+})
+
+-- Identify plaintex as latex
+vim.g.tex_flavor = "latex"
+
+-- Load snippets 
+require("luasnip.loaders.from_lua").lazy_load({paths = "~/nixos-config/desktop/apps/neovim/LuaSnip/"})
+
+vim.keymap.set('n', '<Leader>L', '<Cmd>lua require("luasnip.loaders.from_lua").load({paths = "~/nixos-config/desktop/apps/neovim/LuaSnip/"})<CR>')

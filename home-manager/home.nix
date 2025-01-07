@@ -63,6 +63,9 @@
       xz
       unzip
       bat
+      zathura
+      xdotool
+      pstree
       # flatpak
       libsecret
       # hyprpanel
@@ -123,7 +126,7 @@
   programs.git = {
     enable = true;
     userName = "moka";
-    userEmail = "minji@ciencias.unam.mx";
+    userEmail = "areumm@proton.me";
   };
 
   # nix-direnv configuration for programming environments

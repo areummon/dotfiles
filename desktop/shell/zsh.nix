@@ -11,7 +11,7 @@
     syntaxHighlighting.enable = true;
     shellAliases = {
       update = "sudo nixos-rebuild switch";
-      sd = "cd ~ && cd \$(find * -type d | fzf)";
+      sd = "cd ~ && cd \$(fd --type d | fzf)";
     };
     history = {
       size = 10000;

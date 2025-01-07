@@ -10,6 +10,7 @@
     viAlias = true;
     vimAlias = true;
     plugins = with pkgs.unstable.vimPlugins; [
+      vimtex
       trouble-nvim
       kanagawa-nvim
       vim-airline
