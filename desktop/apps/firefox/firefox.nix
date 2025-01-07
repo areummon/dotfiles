@@ -13,7 +13,7 @@
         force = true;
         default = "Google";
         privateDefault = "DuckDuckGo";
-        order = ["Goole" "DuckDuckGo"];
+        order = ["Google" "DuckDuckGo"];
         engines = {
           "Bing".metaData.hidden = true;
         };

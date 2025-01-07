@@ -17,6 +17,7 @@
       ".var/"
       ".local/share/fonts/"
       ".local/share/flatpak/"
+      ".git"
     ];
   };
 }
