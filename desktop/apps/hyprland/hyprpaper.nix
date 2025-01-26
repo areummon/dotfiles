@@ -5,15 +5,15 @@
   ...
 }: {
   services.hyprpaper = {
-    enable = false;
+    enable = true;
     package = pkgs.unstable.hyprpaper;
     settings = {
       ipc = "off";
       preload = [
-        "${config.home.homeDirectory}/Pictures/wallpapers/wallpaper1.jpg"
+        "${config.home.homeDirectory}/Pictures/wallpapers/wallpaper2.jpeg"
       ];
       wallpaper = [
-        ",${config.home.homeDirectory}/Pictures/wallpapers/wallpaper1.jpg"
+        ",${config.home.homeDirectory}/Pictures/wallpapers/wallpaper2.jpeg"
       ];
     };
   };

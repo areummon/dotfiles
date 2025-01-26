@@ -186,6 +186,11 @@
     pulse.enable = true;
     # If you want to use JACK applications, uncomment this
     #jack.enable = true;
+    extraConfig.pipewire.pipewire = {
+      "context.properties" = {
+        "clock.force-quantum" = 2048;
+      };
+    };
   };
 
   # Some programs need SUID wrappers, can be configured further or are

@@ -58,6 +58,9 @@
       anki-bin
       neofetch
       mpv
+      brightnessctl
+      btop
+      wl-clipboard
       # util
       zip
       xz
@@ -68,24 +71,6 @@
       pstree
       # flatpak
       libsecret
-      # hyprpanel
-      brightnessctl
-      pamixer
-      icomoon-feather
-      grimblast
-      btop
-      matugen
-      swww
-      dart-sass
-      wl-clipboard
-      bluez
-      bluez-tools
-      libgtop
-      gnome-bluetooth
-      bun
-      # hyprland
-      hyprpicker
-      hyprsunset
       # fonts
       font-awesome
       powerline-fonts
@@ -97,7 +82,9 @@
       nerd-fonts.symbols-only
       nerd-fonts.meslo-lg
     ]
-    ++ [pkgs.hyprpanel];
+    ++ (with pkgs; [
+      hyprpanel
+    ]);
 
   home.sessionVariables = {
     #Optional, hint Electron apps to use Wayland:

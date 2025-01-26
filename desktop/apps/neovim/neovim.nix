@@ -10,11 +10,10 @@
     viAlias = true;
     vimAlias = true;
     plugins = with pkgs.unstable.vimPlugins; [
+      lualine-nvim
+      rose-pine
       vimtex
       trouble-nvim
-      kanagawa-nvim
-      vim-airline
-      vim-airline-themes
       indent-blankline-nvim
       mini-icons
       mini-files

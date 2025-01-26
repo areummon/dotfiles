@@ -7,7 +7,7 @@
   programs.kitty = {
     enable = true;
     package = pkgs.unstable.kitty;
-    themeFile = "Afterglow";
+    themeFile = "DimmedMonokai";
     font.name = "MesloLG";
     extraConfig = lib.strings.concatStrings [
       ''

@@ -19,10 +19,6 @@ inoremap { {}<left>
 inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O
 
-" Airline configuration
-let g:airline_theme='bubblegum'
-let g:airline_powerline_fonts = 1
-
 " Find files using Telescope command-line sugar.
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
@@ -62,10 +58,10 @@ xmap im <Plug>(vimtex-i$)
 
 " Use `<localleader>c` to trigger continuous compilation...
 nmap <localleader>c <Plug>(vimtex-compile)
+" Define a custom shortcut to trigger VimtexView
+nmap <localleader>v <plug>(vimtex-view)
 
 " Don't open QuickFix for warning messages if no errors are present
 let g:vimtex_quickfix_open_on_warning = 0  
 " Use Zathura as the VimTeX PDF viewer
 let g:vimtex_view_method = 'zathura'
-" Define a custom shortcut to trigger VimtexView
-nmap <localleader>v <plug>(vimtex-view)

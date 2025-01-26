@@ -14,7 +14,7 @@
         gaps_in = 5;
         gaps_out = 20;
         border_size = 2;
-        "col.active_border" = "rgba(c595cbfc) rgba(ffa066fc) 45deg";
+        "col.active_border" = "rgba(c1addafc) rgba(853b8cfc) 45deg";
         "col.inactive_border" = "rgba(595959aa)";
         resize_on_border = false;
         allow_tearing = false;
@@ -45,7 +45,10 @@
       };
       windowrulev2 = [
         #"opacity 0.8 override 0.75 override 1.0 override, class:firefox"
-        "opacity 1.0 override, title: (.*YouTube.*)$"
+        #"opacity 1.0 override, title: (.*YouTube.*)$"
+        "opaque, title:(.*)(Brave)$"
+        "opaque, title:(.*)(Firefox)$"
+        "opaque, title:(.*)(LibreWolf)$"
         # windows and workspaces
         "suppressevent maximize, class:.*"
         # Fix some dragging issues with XWayland
@@ -151,8 +154,8 @@
         # Binds for active windows
         "$mod SHIFT, l, movefocus, r"
         "$mod SHIFT, h, movefocus, l"
-        "$mod SHIFT, k, movefocus, d"
-        "$mod SHIFT, i, movefocus, u"
+        "$mod SHIFT, j, movefocus, d"
+        "$mod SHIFT, k, movefocus, u"
 
         # Example special workspace (scratchpad)
         "$mod, S, togglespecialworkspace, magic"
@@ -184,13 +187,12 @@
         ", XF86AudioPrev, exec, playerctl previous"
       ];
       monitor = "eDP-1, 1920x1200@60, 0x0, 1";
+      exec-once = [
+        "hyprpaper"
+        "hyprpanel"
+        "fcitx5 -d # not ${pkgs.fcitx5}/bin/fcitx5 !"
+        "hyprctl setcursor McMojave 40"
+      ];
     };
-    extraConfig = lib.strings.concatStrings [
-      ''
-        exec-once= hyprpaper
-        exec-once= hyprpanel
-        exec-once= fcitx5 -d # not ${pkgs.fcitx5}/bin/fcitx5 !
-      ''
-    ];
   };
 }
