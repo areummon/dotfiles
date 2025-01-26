@@ -189,6 +189,8 @@
     extraConfig.pipewire."pipewire" = {
       "context.properties" = {
         "default.clock.quantum" = 2048;
+        "default.clock.min-quantum" = 2048;
+        "default.clock.max-quantum" = 2048;
       };
     };
   };
