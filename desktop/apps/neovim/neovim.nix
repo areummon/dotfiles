@@ -24,6 +24,7 @@
       # Treesitter
       nvim-treesitter
       nvim-treesitter-parsers.rust
+      nvim-treesitter-parsers.c
       # lsp
       nvim-lspconfig
       # cmp
