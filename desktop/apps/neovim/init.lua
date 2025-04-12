@@ -70,7 +70,7 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local lspconfig = require('lspconfig')
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { 'rust_analyzer' }
+local servers = { 'rust_analyzer', 'hls', 'clangd' }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     -- on_attach = my_custom_on_attach,
@@ -133,23 +133,15 @@ vim.keymap.set("n", "<leader>cl", "<cmd>Trouble lsp toggle focus=false win.posit
 vim.keymap.set("n", "<leader>xL", "<cmd>Trouble loclist toggle<cr>")
 vim.keymap.set("n", "<leader>xQ", "<cmd>Trouble qflist toggle<cr>")
 
--- rose-pine and lulaine configuration
-require("rose-pine").setup({
-    highlight_groups = {
-	    TelescopeBorder = { fg = "highlight_high", bg = "none" },
-	    TelescopeNormal = { bg = "none" },
-	    TelescopePromptNormal = { bg = "base" },
-	    TelescopeResultsNormal = { fg = "subtle", bg = "none" },
-	    TelescopeSelection = { fg = "text", bg = "base" },
-	    TelescopeSelectionCaret = { fg = "rose", bg = "rose" },
-    },
-})
+-- nord and lulaine configuration
+vim.g.nord_disable_background = true 
+require('nord').set()
 
-vim.cmd("colorscheme rose-pine")
+vim.cmd[[colorscheme nord]]
 
 require('lualine').setup({
   options = {
-    theme = 'rose-pine'
+    theme = 'nord'
   }
 })
 

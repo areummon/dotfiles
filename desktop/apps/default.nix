@@ -8,8 +8,9 @@
     ./kitty/kitty.nix
     ./firefox/firefox.nix
     ./hyprland
-    ./rofi/rofi.nix
+    ./wofi/wofi.nix
     ./neovim/neovim.nix
     ./fd/fd.nix
+    ./vscode/vscode.nix
   ];
 }

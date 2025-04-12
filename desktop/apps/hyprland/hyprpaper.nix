@@ -10,10 +10,10 @@
     settings = {
       ipc = "off";
       preload = [
-        "${config.home.homeDirectory}/Pictures/wallpapers/wallpaper2.jpeg"
+        "${config.home.homeDirectory}/Pictures/wallpapers/sky4.png"
       ];
       wallpaper = [
-        ",${config.home.homeDirectory}/Pictures/wallpapers/wallpaper2.jpeg"
+        ",${config.home.homeDirectory}/Pictures/wallpapers/sky4.png"
       ];
     };
   };

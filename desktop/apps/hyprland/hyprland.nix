@@ -12,32 +12,28 @@
     settings = {
       general = {
         gaps_in = 5;
-        gaps_out = 20;
+        gaps_out = 10;
         border_size = 2;
-        "col.active_border" = "rgba(c1addafc) rgba(853b8cfc) 45deg";
-        "col.inactive_border" = "rgba(595959aa)";
-        resize_on_border = false;
+        "col.active_border" = "rgba(121212aa) rgba(121212aa) 45deg";
+        "col.inactive_border" = "rgba(121212aa)";
+        resize_on_border = true;
         allow_tearing = false;
         layout = "dwindle";
       };
       decoration = {
-        rounding = 10;
-        active_opacity = 0.75;
-        inactive_opacity = 0.75;
+        rounding = 12;
+        active_opacity = 0.80;
+        inactive_opacity = 0.80;
         shadow = {
           enabled = true;
-          range = 6;
-          render_power = 3;
-          color = "rgba(1a1a1aee)";
+          range = 16;
+          render_power = 5;
+          color = "rgba(0,0,0,0.35)";
         };
         blur = {
           enabled = true;
-          size = 3;
-          noise = 0.0117;
-          contrast = 0.8916;
-          brightness = 0.8172;
+          size = 2;
           passes = 3;
-          xray = true;
           new_optimizations = true;
           vibrancy = 0.1696;
           ignore_opacity = false;
@@ -56,8 +52,9 @@
         "nomaxsize, class:.*"
       ];
       layerrule = [
-        "blur, rofi"
-        "ignorealpha 0.4, rofi"
+        "blur, bar-0"
+        "blur, wofi"
+        "ignorealpha 0.4, wofi"
       ];
       animations = {
         enabled = "yes, please :)";
@@ -122,7 +119,8 @@
         "$mod, C, killactive,"
         "$mod, M, exec, uwsm stop"
         "$mod, V, togglefloating,"
-        "$mod, R, exec, ${config.xdg.configHome}/rofi-theme/launcher/launcher.sh"
+        #"$mod, R, exec, ${config.xdg.configHome}/rofi-theme/launcher/launcher.sh"
+	"$mod, R, exec, wofi"
         "$mod, P, pseudo # dwindle"
         "$mod, J, togglesplit, # dwindle"
         "$mod_SHIFT, F, exec, firefox"

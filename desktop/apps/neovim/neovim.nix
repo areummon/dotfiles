@@ -11,7 +11,7 @@
     vimAlias = true;
     plugins = with pkgs.unstable.vimPlugins; [
       lualine-nvim
-      rose-pine
+      nord-nvim
       vimtex
       trouble-nvim
       indent-blankline-nvim
@@ -24,7 +24,9 @@
       # Treesitter
       nvim-treesitter
       nvim-treesitter-parsers.rust
+      nvim-treesitter-parsers.python
       nvim-treesitter-parsers.c
+      nvim-treesitter-parsers.haskell
       # lsp
       nvim-lspconfig
       # cmp
