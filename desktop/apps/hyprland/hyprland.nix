@@ -120,7 +120,7 @@
         "$mod, M, exec, uwsm stop"
         "$mod, V, togglefloating,"
         #"$mod, R, exec, ${config.xdg.configHome}/rofi-theme/launcher/launcher.sh"
-	"$mod, R, exec, wofi"
+        "$mod, R, exec, wofi"
         "$mod, P, pseudo # dwindle"
         "$mod, J, togglesplit, # dwindle"
         "$mod_SHIFT, F, exec, firefox"

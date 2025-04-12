@@ -16,26 +16,20 @@
   ];
 
   nixpkgs = {
-    # You can add overlays here
     overlays = [
-      # Add overlays your own flake exports (from overlays and pkgs dir):
       outputs.overlays.additions
       outputs.overlays.modifications
       outputs.overlays.unstable-packages
 
-      # You can also add overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
 
-      # Or define it inline, for example:
       # (final: prev: {
       #   hi = final.hello.overrideAttrs (oldAttrs: {
       #     patches = [ ./change-hello-to-hi.patch ];
       #   });
       # })
     ];
-    # Configure your nixpkgs instance
     config = {
-      # Disable if you don't want unfree packages
       allowUnfree = true;
     };
   };
@@ -44,17 +38,15 @@
     flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
   in {
     settings = {
-      # Enable flakes and new 'nix' command
       experimental-features = "nix-command flakes";
-      # Opinionated: disable global registry
       flake-registry = "";
       # Workaround for https://github.com/NixOS/nix/issues/9574
       nix-path = config.nix.nixPath;
     };
-    # Opinionated: disable channels
+    # disable channels
     #channel.enable = false;
 
-    # Opinionated: make flake registry and nix path match flake inputs
+    # make flake registry and nix path match flake inputs
     #registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
     #nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
 
@@ -66,9 +58,6 @@
     };
 
     # Optimize storage
-    # You can also manually optimize the store via:
-    #    nix-store --optimise
-    # Refer to the following link for more details:
     # https://nixos.org/manual/nix/stable/command-ref/conf-file.html#conf-auto-optimise-store
     settings.auto-optimise-store = true;
   };
@@ -138,14 +127,16 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs.unstable; [
-    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    #  wget
     git
     vim
     wget
-    # Nautilus
     nautilus
+    # Python
+    conda
+    xonsh
   ];
+
+  services.fwupd.enable = true;
 
   # Hyrpland NixOS module
   programs.hyprland.enable = true;
@@ -177,14 +168,12 @@
   };
 
   # Pipewire configuration
-  # rtkit is optional but recommended
   security.rtkit.enable = true;
   services.pipewire = {
-    enable = true; # if not already enabled
+    enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
     jack.enable = true;
     extraConfig.pipewire."pipewire" = {
       "context.properties" = {
@@ -202,8 +191,6 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-
-  # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
