@@ -13,7 +13,7 @@
       show_all = true;
       gtk_dark = false;
       location = "center";
-      insensitive = false;
+      insensitive = true;
       allow_markup = true;
       allow_images = true;
       line_wrap = "word";
