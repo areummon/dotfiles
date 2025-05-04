@@ -85,6 +85,12 @@
     };
   };
 
+  # bluetooth configuration
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
+
   # Set your time zone.
   time.timeZone = "America/Mexico_City";
 
@@ -134,6 +140,8 @@
     # Python
     conda
     xonsh
+    # networkmanager
+    networkmanager-openvpn
   ];
 
   services.fwupd.enable = true;

@@ -65,3 +65,8 @@ nmap <localleader>v <plug>(vimtex-view)
 let g:vimtex_quickfix_open_on_warning = 0  
 " Use Zathura as the VimTeX PDF viewer
 let g:vimtex_view_method = 'zathura'
+
+" Remap gt and gT
+map <leader>n :bnext<cr>
+map <leader>p :bprevious<cr>
+map <leader>d :bdelete<cr>
