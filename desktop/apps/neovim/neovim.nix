@@ -27,6 +27,7 @@
       nvim-treesitter-parsers.python
       nvim-treesitter-parsers.c
       nvim-treesitter-parsers.haskell
+      nvim-treesitter-parsers.zig
       # lsp
       nvim-lspconfig
       # cmp
