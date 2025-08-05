@@ -23,7 +23,6 @@
       outputs.overlays.unstable-packages
 
       # neovim-nightly-overlay.overlays.default
-      inputs.hyprpanel.overlay
 
       # (final: prev: {
       #   hi = final.hello.overrideAttrs (oldAttrs: {
@@ -58,6 +57,8 @@
       zathura
       xdotool
       pstree
+      rclone
+      hyprpanel
       # flatpak
       libsecret
       # fonts
@@ -72,8 +73,7 @@
       nerd-fonts.meslo-lg
     ]
     ++ (with pkgs; [
-      hyprpanel
-    ]);
+      ]);
 
   home.sessionVariables = {
     NIXOS_OZONE_WL = "1";
