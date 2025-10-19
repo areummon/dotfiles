@@ -243,6 +243,10 @@
   # Docker configuration
   virtualisation.docker.enable = true;
 
+  # VirtualBox configuration
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = ["moka"];
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];

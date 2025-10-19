@@ -96,7 +96,7 @@
         follow_mouse = 1;
         sensitivity = 0;
         touchpad = {
-          natural_scroll = false;
+          natural_scroll = true;
         };
       };
       gestures = {
@@ -188,6 +188,8 @@
       exec-once = [
         "hyprpaper"
         "hyprpanel"
+        "hyprlock"
+        "hypridle"
         "fcitx5 -d # not ${pkgs.fcitx5}/bin/fcitx5 !"
         "hyprctl setcursor McMojave 40"
       ];

@@ -71,6 +71,8 @@
       nerd-fonts.fira-code
       nerd-fonts.symbols-only
       nerd-fonts.meslo-lg
+      # college
+      ciscoPacketTracer8
     ]
     ++ (with pkgs; [
       ]);
@@ -93,8 +95,8 @@
   systemd.user.startServices = "sd-switch";
 
   # Temporal fix for hyprpaper & hypridle
-  systemd.user.services.hypridle.Unit.After = lib.mkForce "graphical-session.target";
-  systemd.user.services.hyprpaper.Unit.After = lib.mkForce "graphical-session.target";
+  #systemd.user.services.hypridle.Unit.After = lib.mkForce "graphical-session.target";
+  #systemd.user.services.hyprpaper.Unit.After = lib.mkForce "graphical-session.target";
 
   # Git configuration
   programs.git = {

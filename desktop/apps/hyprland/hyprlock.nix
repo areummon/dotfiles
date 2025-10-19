@@ -8,15 +8,19 @@
     enable = true;
     package = pkgs.unstable.hyprlock;
     settings = {
+      general = {
+        screencopy_mode = 1;
+      };
       background = {
         path = "${config.home.homeDirectory}/Pictures/wallpapers/background.jpg";
+        outline_thickness = 0;
         blur_passes = 1;
         blur_size = 3;
       };
       image = {
         path = "${config.home.homeDirectory}/Pictures/icons/icon2.1.jpg";
-        outline_thickness = 0;
         size = 150;
+        outline_thickness = 0;
         rounding = -1;
         position = "0, 130";
       };
@@ -25,7 +29,6 @@
           #user
           text = "moka";
           color = "rgba(216, 222, 233, 0.8)";
-          outline_thickness = 0;
           font_size = 20;
           position = "0, 26";
           halign = "center";
@@ -52,9 +55,9 @@
       ];
       input-field = {
         size = "250, 50";
-        outline_thickness = 2;
         dots_center = true;
         dots_size = 0.15;
+        outline_thickness = 2;
         outer_color = "rgba(36, 36, 56, 0.8)";
         inner_color = "rgba(36, 36, 56, 0.8)";
         font_color = "rgba(255, 255, 255, 1.0)";
