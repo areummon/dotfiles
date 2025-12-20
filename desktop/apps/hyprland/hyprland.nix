@@ -99,9 +99,11 @@
           natural_scroll = true;
         };
       };
-      gestures = {
-        workspace_swipe = true;
-      };
+      gesture = [
+        "3, horizontal, workspace"
+	"3, down, mod: ALT, close"
+	"4, pinch, fullscreen"
+      ];
       device = {
         name = "epic-mouse-v1";
         sensitivity = "0.5";
