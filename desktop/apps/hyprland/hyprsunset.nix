@@ -24,7 +24,7 @@
         }
         {
           time = "17:30";
-          temperatura = 3800;
+          temperature = 3800;
         }
         {
           time = "18:00";
