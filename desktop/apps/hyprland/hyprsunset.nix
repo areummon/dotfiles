@@ -4,20 +4,35 @@
   config,
   ...
 }: {
-  programs.hyprlock = {
+  services.hyprsunset = {
     enable = true;
-    package = pkgs.unstable.hyprlock;
+    package = pkgs.unstable.hyprsunset;
     settings = {
       max-gamma = 150;
       profile = [
         {
-          time = "7:30";
+          time = "7:00";
+          temperature = 3700;
+        }
+        {
+          time = "9:00";
           identity = true;
         }
         {
+          time = "16:00";
+          temperature = 4500;
+        }
+        {
+          time = "17:30";
+          temperatura = 3800;
+        }
+        {
+          time = "18:00";
+          temperature = 3200;
+        }
+        {
           time = "21:00";
-          temperature = 5000;
-          gamma = 0.8;
+          temperature = 2500;
         }
       ];
     };

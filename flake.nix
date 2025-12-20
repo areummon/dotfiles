@@ -2,9 +2,9 @@
   description = "My nix flake configuration to manage the system";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11"; # NixOS release channel
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11"; # NixOS release channel
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable"; # NixOS unstable channel
-    home-manager.url = "github:nix-community/home-manager/release-24.11"; # Home Manager release channel
+    home-manager.url = "github:nix-community/home-manager/release-25.11"; # Home Manager release channel
     hyprland.url = "github:hyprwm/Hyprland";
   };
 
@@ -32,7 +32,6 @@
     # Formatter for your nix files, available through 'nix fmt'
     # Other options beside 'alejandra' include 'nixpkgs-fmt'
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
-
     # Your custom packages and modifications, exported as overlays
     overlays = import ./overlays {inherit inputs;};
     # Reusable nixos modules you might want to export

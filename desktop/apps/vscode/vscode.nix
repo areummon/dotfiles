@@ -8,6 +8,6 @@
     enable = true;
     package = pkgs.unstable.vscode;
     mutableExtensionsDir = true;
-    enableExtensionUpdateCheck = true;
+    profiles.default.enableExtensionUpdateCheck = true;
   };
 }

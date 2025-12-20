@@ -17,7 +17,7 @@
       size = 10000;
       path = "${config.xdg.dataHome}/zsh/history";
     };
-    initExtra = lib.strings.concatStrings [
+    initContent = lib.strings.concatStrings [
       ''
              if uwsm check may-start && uwsm select; then
         exec systemd-cat -t uwsm_start uwsm start default

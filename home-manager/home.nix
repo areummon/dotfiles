@@ -71,8 +71,6 @@
       nerd-fonts.fira-code
       nerd-fonts.symbols-only
       nerd-fonts.meslo-lg
-      # college
-      ciscoPacketTracer8
     ]
     ++ (with pkgs; [
       ]);
@@ -81,6 +79,7 @@
     NIXOS_OZONE_WL = "1";
   };
 
+  # Configuration for Flatpak
   home.sessionPath = [
     "$HOME/.local/share/flatpak/exports/bin"
   ];
@@ -94,15 +93,15 @@
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
-  # Temporal fix for hyprpaper & hypridle
-  #systemd.user.services.hypridle.Unit.After = lib.mkForce "graphical-session.target";
-  #systemd.user.services.hyprpaper.Unit.After = lib.mkForce "graphical-session.target";
-
   # Git configuration
   programs.git = {
     enable = true;
-    userName = "moka";
-    userEmail = "areumm@proton.me";
+    settings = {
+      user = {
+        name = "moka";
+        email = "areumm@proton.me";
+      };
+    };
   };
 
   # nix-direnv configuration for programming environments

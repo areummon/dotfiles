@@ -190,6 +190,7 @@
         "hyprpanel"
         "hyprlock"
         "hypridle"
+        "hyprsunset"
         "fcitx5 -d # not ${pkgs.fcitx5}/bin/fcitx5 !"
         "hyprctl setcursor McMojave 40"
       ];

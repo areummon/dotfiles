@@ -11,11 +11,11 @@
     profiles.moka = {
       search = {
         force = true;
-        default = "Google";
-        privateDefault = "DuckDuckGo";
-        order = ["Google" "DuckDuckGo"];
+        default = "google";
+        privateDefault = "ddg";
+        order = ["google" "ddg"];
         engines = {
-          "Bing".metaData.hidden = true;
+          "bing".metaData.hidden = true;
         };
       };
       bookmarks = {};

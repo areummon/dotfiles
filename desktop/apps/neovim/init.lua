@@ -67,11 +67,7 @@ require('telescope').load_extension('fzf')
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-
-vim.lsp.enable('rust_analyzer')
-vim.lsp.enable('hls')
-vim.lsp.enable('clangd')
-vim.lsp.enable('zls')
+vim.lsp.enable({'rust_analyzer', 'hls', 'clangd', 'zls'})
 
 -- luasnip setup
 local luasnip = require 'luasnip'

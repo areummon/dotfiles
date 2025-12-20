@@ -9,7 +9,7 @@
     package = pkgs.unstable.hyprlock;
     settings = {
       general = {
-        screencopy_mode = 1;
+        screencopy_mode = 0;
       };
       background = {
         path = "${config.home.homeDirectory}/Pictures/wallpapers/background.jpg";
