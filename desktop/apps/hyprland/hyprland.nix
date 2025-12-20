@@ -32,11 +32,11 @@
         };
         blur = {
           enabled = true;
-          size = 6;
+          size = 2;
           passes = 3;
-          new_optimizations = true;
           vibrancy = 0.1696;
-          ignore_opacity = false;
+          new_optimizations = true;
+          ignore_opacity = true;
         };
       };
       windowrulev2 = [
