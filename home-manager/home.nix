@@ -58,6 +58,7 @@
       pstree
       rclone
       hyprpanel
+      zathura
       # flatpak
       libsecret
       # fonts
