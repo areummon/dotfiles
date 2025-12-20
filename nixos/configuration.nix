@@ -82,6 +82,9 @@
     networkmanager = {
       enable = true;
       insertNameservers = ["1.1.1.1" "8.8.8.8"];
+      plugins = [
+        pkgs.unstable.networkmanager-openvpn
+      ];
     };
   };
 
@@ -137,11 +140,6 @@
     vim
     wget
     nautilus
-    # Python
-    conda
-    xonsh
-    # networkmanager
-    networkmanager-openvpn
   ];
 
   services.fwupd.enable = true;
