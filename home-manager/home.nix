@@ -54,7 +54,6 @@
       xz
       unzip
       bat
-      zathura
       xdotool
       pstree
       rclone

@@ -101,8 +101,8 @@
       };
       gesture = [
         "3, horizontal, workspace"
-	"3, down, mod: ALT, close"
-	"4, pinch, fullscreen"
+        "3, down, mod: ALT, close"
+        "4, pinch, fullscreen"
       ];
       device = {
         name = "epic-mouse-v1";
