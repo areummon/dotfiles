@@ -8,12 +8,12 @@
     enable = true;
     package = pkgs.unstable.hyprpaper;
     settings = {
-      ipc = "off";
-      preload = [
-        "${config.home.homeDirectory}/Pictures/wallpapers/sky4.png"
-      ];
+      splash = false;
       wallpaper = [
-        ",${config.home.homeDirectory}/Pictures/wallpapers/sky4.png"
+        {
+          monitor = "eDP-1";
+          path = "${config.home.homeDirectory}/Pictures/wallpapers/sky4.png";
+        }
       ];
     };
   };
