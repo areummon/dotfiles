@@ -12,5 +12,6 @@
     ./neovim/neovim.nix
     ./fd/fd.nix
     ./vscode/vscode.nix
+    ./mpv/mpv.nix
   ];
 }

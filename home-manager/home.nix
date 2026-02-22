@@ -45,7 +45,6 @@
       papirus-icon-theme
       anki-bin
       neofetch
-      mpv
       brightnessctl
       btop
       wl-clipboard
