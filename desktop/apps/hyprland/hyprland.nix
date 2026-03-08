@@ -55,6 +55,8 @@
         "blur, bar-0"
         "blur, wofi"
         "ignorealpha 0.4, wofi"
+	"blur, waybar"
+	"ignorezero, waybar"
       ];
       animations = {
         enabled = "yes, please :)";
@@ -117,6 +119,7 @@
       };
       "$mod" = "Super";
       bind = [
+	"$mod SHIFT, A, exec, hyprshot -m region"
         "$mod, Q, exec, kitty"
         "$mod, C, killactive,"
         "$mod, M, exec, uwsm stop"
@@ -188,11 +191,11 @@
       ];
       monitor = "eDP-1, 1920x1200@60, 0x0, 1";
       exec-once = [
+        "hypridle"
         "hyprpaper"
         "hyprpanel"
-        "hyprlock"
-        "hypridle"
         "hyprsunset"
+	"waybar"
         "fcitx5 -d # not ${pkgs.fcitx5}/bin/fcitx5 !"
         "hyprctl setcursor McMojave 40"
       ];

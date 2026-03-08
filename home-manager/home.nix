@@ -44,9 +44,10 @@
     [
       papirus-icon-theme
       anki-bin
-      neofetch
       brightnessctl
+      bluez-tools
       btop
+      fzf
       wl-clipboard
       # util
       zip
@@ -56,8 +57,8 @@
       xdotool
       pstree
       rclone
-      hyprpanel
       zathura
+      hyprshot
       # flatpak
       libsecret
       # fonts
@@ -70,6 +71,7 @@
       nerd-fonts.fira-code
       nerd-fonts.symbols-only
       nerd-fonts.meslo-lg
+      nerd-fonts.commit-mono
     ]
     ++ (with pkgs; [
       ]);

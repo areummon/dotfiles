@@ -13,5 +13,6 @@
     ./fd/fd.nix
     ./vscode/vscode.nix
     ./mpv/mpv.nix
+    ./waybar/waybar.nix
   ];
 }

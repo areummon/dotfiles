@@ -140,7 +140,9 @@
     vim
     wget
     nautilus
-  ];
+    distrobox
+  ] ++ (with pkgs; [
+  ]);
 
   services.fwupd.enable = true;
 
@@ -238,11 +240,14 @@
     '';
   };
 
-  # Docker configuration
-  virtualisation.docker.enable = true;
-
-  # VirtualBox configuration
-  virtualisation.virtualbox.host.enable = true;
+  virtualisation = {
+    virtualbox.host.enable = true;
+    podman = {
+      enable = true;
+      dockerCompat = true;
+    };
+  };
+  
   users.extraGroups.vboxusers.members = ["moka"];
 
   # Open ports in the firewall.
