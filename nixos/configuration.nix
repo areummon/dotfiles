@@ -135,14 +135,16 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs.unstable; [
-    git
-    vim
-    wget
-    nautilus
-    distrobox
-  ] ++ (with pkgs; [
-  ]);
+  environment.systemPackages = with pkgs.unstable;
+    [
+      git
+      vim
+      wget
+      nautilus
+      distrobox
+    ]
+    ++ (with pkgs; [
+      ]);
 
   services.fwupd.enable = true;
 
@@ -247,7 +249,7 @@
       dockerCompat = true;
     };
   };
-  
+
   users.extraGroups.vboxusers.members = ["moka"];
 
   # Open ports in the firewall.

@@ -78,6 +78,7 @@
 
   home.sessionVariables = {
     NIXOS_OZONE_WL = "1";
+    HYPRSHOT_DIR = "${config.home.homeDirectory}/Pictures/Screenshots";
   };
 
   # Configuration for Flatpak

@@ -55,8 +55,8 @@
         "blur, bar-0"
         "blur, wofi"
         "ignorealpha 0.4, wofi"
-	"blur, waybar"
-	"ignorezero, waybar"
+        "blur, waybar"
+        "ignorezero, waybar"
       ];
       animations = {
         enabled = "yes, please :)";
@@ -119,7 +119,7 @@
       };
       "$mod" = "Super";
       bind = [
-	"$mod SHIFT, A, exec, hyprshot -m region"
+        "$mod SHIFT, A, exec, hyprshot -m region"
         "$mod, Q, exec, kitty"
         "$mod, C, killactive,"
         "$mod, M, exec, uwsm stop"
@@ -195,7 +195,7 @@
         "hyprpaper"
         "hyprpanel"
         "hyprsunset"
-	"waybar"
+        "waybar"
         "fcitx5 -d # not ${pkgs.fcitx5}/bin/fcitx5 !"
         "hyprctl setcursor McMojave 40"
       ];
