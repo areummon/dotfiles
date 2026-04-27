@@ -10,15 +10,6 @@ set tabstop=8 softtabstop=0
 " Copy to the system clipboard
 set clipboard=unnamedplus
 
-" Autoclosing pairs
-inoremap " ""<left>
-inoremap ' ''<left>
-inoremap ( ()<left>
-inoremap [ []<left>
-inoremap { {}<left>
-inoremap {<CR> {<CR>}<ESC>O
-inoremap {;<CR> {<CR>};<ESC>O
-
 " Find files using Telescope command-line sugar.
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
@@ -70,3 +61,24 @@ let g:vimtex_view_method = 'zathura'
 map <leader>n :bnext<cr>
 map <leader>p :bprevious<cr>
 map <leader>d :bdelete<cr>
+
+" typst configuration
+function! GitRoot()
+    let l:git_dir = finddir('.git', '.;')
+    if l:git_dir !=# ''
+        return fnamemodify(l:git_dir, ':h')
+    endif
+    return getcwd()
+endfunction
+
+function! TypstWatch()
+    set splitright
+    vsp
+    vertical resize 20
+    exec 'terminal typst watch --root ' .. GitRoot() .. ' ' .. expand('%:p')
+    wincmd h
+endfunction
+
+nnoremap <silent> <leader>fc :call TypstWatch()<cr>
+
+nnoremap <silent><leader>fr :silent exec "!zathura --fork " . expand("%:p:r") . ".pdf &"<cr>

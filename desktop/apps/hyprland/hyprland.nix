@@ -193,7 +193,6 @@
       exec-once = [
         "hypridle"
         "hyprpaper"
-        "hyprpanel"
         "hyprsunset"
         "waybar"
         "fcitx5 -d # not ${pkgs.fcitx5}/bin/fcitx5 !"

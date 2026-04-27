@@ -93,6 +93,19 @@ require('lualine').setup({
   }
 })
 
+require('nvim-autopairs').setup({
+    check_ts = true, 
+    fast_wrap = {}, 
+    disable_filetype = { "TelescopePrompt" },
+})
+
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+local cmp = require('cmp')
+
+cmp.event:on(
+  'confirm_done',
+  cmp_autopairs.on_confirm_done()
+)
 -- Luasnip configuration for snippets
 luasnip.config.set_config({ -- Setting LuaSnip config
 
@@ -105,6 +118,16 @@ luasnip.config.set_config({ -- Setting LuaSnip config
   -- Text in the repeated node update as typing
   update_events = 'TextChanged,TextChangedI',
 })
+
+-- Tinymist configuration
+vim.keymap.set('n', '<leader>tp', function()
+    local clients = vim.lsp.get_clients({ name = "tinymist" })
+    if #clients > 0 then
+        clients[1]:exec_cmd({ command = "tinymist.startDefaultPreview", title = "Preview" })
+    else
+        print("Tinymist LSP not active")
+    end
+end, { desc = "Typst: Start Tinymist Preview" })
 
 -- Identify plaintex as latex
 vim.g.tex_flavor = "latex"

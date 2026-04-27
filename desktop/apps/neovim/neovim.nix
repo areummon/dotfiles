@@ -10,6 +10,7 @@
     viAlias = true;
     vimAlias = true;
     plugins = with pkgs.unstable.vimPlugins; [
+      nvim-autopairs
       lualine-nvim
       nord-nvim
       vimtex

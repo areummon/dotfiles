@@ -52,4 +52,10 @@
     icons = "auto";
     git = true;
   };
+
+  programs.zoxide = {
+    enable = true;
+    package = pkgs.unstable.zoxide;
+    enableZshIntegration = true;
+  };
 }

@@ -58,6 +58,7 @@
       pstree
       rclone
       zathura
+      sioyek
       hyprshot
       # flatpak
       libsecret
