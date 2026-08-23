@@ -8,6 +8,7 @@
   programs.firefox = {
     enable = true;
     package = pkgs.unstable.firefox;
+    configPath = "${config.xdg.configHome}/mozilla/firefox";
     profiles.moka = {
       search = {
         force = true;

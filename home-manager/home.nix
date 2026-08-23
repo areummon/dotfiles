@@ -11,6 +11,7 @@
     # Or modules exported from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModules.default
     inputs.hyprland.homeManagerModules.default
+    inputs.hermes-agent.homeManagerModules.default
 
     ../desktop
   ];
@@ -21,6 +22,7 @@
       outputs.overlays.additions
       outputs.overlays.modifications
       outputs.overlays.unstable-packages
+      inputs.opencode.overlays.default
 
       # neovim-nightly-overlay.overlays.default
 
@@ -31,7 +33,7 @@
       # })
     ];
     config = {
-      allowUnfree = true;
+      #allowUnfree = true;
     };
   };
 
@@ -43,7 +45,7 @@
   home.packages = with pkgs.unstable;
     [
       papirus-icon-theme
-      anki-bin
+      anki
       brightnessctl
       bluez-tools
       btop
@@ -75,7 +77,8 @@
       nerd-fonts.commit-mono
     ]
     ++ (with pkgs; [
-      ]);
+      opencode
+    ]);
 
   home.sessionVariables = {
     NIXOS_OZONE_WL = "1";

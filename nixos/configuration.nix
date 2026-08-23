@@ -44,7 +44,7 @@
       nix-path = config.nix.nixPath;
     };
     # disable channels
-    #channel.enable = false;
+    channel.enable = false;
 
     # make flake registry and nix path match flake inputs
     #registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
@@ -130,6 +130,7 @@
         # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
       ];
       packages = with pkgs; [];
+      linger = true;
     };
   };
 
@@ -149,7 +150,11 @@
   services.fwupd.enable = true;
 
   # Hyrpland NixOS module
-  programs.hyprland.enable = true;
+  programs.hyprland = {
+    enable = true;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+  };
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   home-manager = {
@@ -172,8 +177,12 @@
     wantedBy = ["sound.target"];
     after = wantedBy;
     serviceConfig.type = "oneshot";
+    # -f guard: don't fail the boot unit if the sysfs path doesn't exist
+    # (e.g. kernel/codec changes). Restart on resume in case state resets.
     script = ''
-      echo off > /sys/class/sound/ctl-led/mic/mode
+      if [ -w /sys/class/sound/ctl-led/mic/mode ]; then
+        echo off > /sys/class/sound/ctl-led/mic/mode
+      fi
     '';
   };
 

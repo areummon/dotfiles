@@ -9,6 +9,8 @@
     package = pkgs.unstable.neovim-unwrapped;
     viAlias = true;
     vimAlias = true;
+    withRuby = false;
+    withPython3 = false;
     plugins = with pkgs.unstable.vimPlugins; [
       nvim-autopairs
       lualine-nvim
@@ -41,6 +43,6 @@
       pkgs.unstable.ripgrep
     ];
     extraConfig = builtins.readFile ./init.vim;
-    extraLuaConfig = builtins.readFile ./init.lua;
+    initLua = builtins.readFile ./init.lua;
   };
 }

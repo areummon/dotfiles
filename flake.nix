@@ -2,10 +2,15 @@
   description = "My nix flake configuration to manage the system";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11"; # NixOS release channel
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05"; # NixOS release channel
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable"; # NixOS unstable channel
-    home-manager.url = "github:nix-community/home-manager/release-25.11"; # Home Manager release channel
+    home-manager = {
+      url = "github:nix-community/home-manager/release-26.05"; # Home Manager release channel
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     hyprland.url = "github:hyprwm/Hyprland";
+    opencode.url = "github:anomalyco/opencode";
+    hermes-agent.url = "github:NousResearch/hermes-agent";
   };
 
   outputs = {

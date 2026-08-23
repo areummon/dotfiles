@@ -36,6 +36,9 @@
       ''
         export KEYTIMEOUT=1  # Reduce mode switch delay
       ''
+      ''
+        [ -f ~/.secrets/openrouter.env ] && set -a && source ~/.secrets/openrouter.env && set +a
+      ''
     ];
   };
 

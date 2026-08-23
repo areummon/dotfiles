@@ -14,5 +14,6 @@
     ./vscode/vscode.nix
     ./mpv/mpv.nix
     ./waybar/waybar.nix
+    ./agents
   ];
 }

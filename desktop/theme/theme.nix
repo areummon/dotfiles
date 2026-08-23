@@ -16,10 +16,6 @@
   gtk = {
     enable = true;
     iconTheme.name = "Papirus-Dark";
-    theme = {
-      name = "Adwaita-dark";
-      package = pkgs.unstable.gnome-themes-extra;
-    };
   };
 
   qt = {
