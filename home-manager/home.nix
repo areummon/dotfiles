@@ -46,6 +46,7 @@
     [
       papirus-icon-theme
       anki
+      signal-cli
       brightnessctl
       bluez-tools
       btop

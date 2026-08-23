@@ -8,7 +8,8 @@
     enable = true;
     package = pkgs.opencode;
     settings = {
-      model = "openrouter/stealth/ox-alpha";
+      model = "openrouter/openai/gpt-oss-120b:free";
+      small_model = "openrouter/openai/gpt-oss-20b:free";
     };
   };
 }
