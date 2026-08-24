@@ -14,18 +14,22 @@
     ];
     settings = {
       model.default = "stealth/ox-alpha";
-      # Free model config
-      # model.default = "openai/gpt-oss-120b:free";
-      # fallback_providers = [
-      #   {
-      #     provider = "openrouter";
-      #     model = "z-ai/glm-4.5-air:free";
-      #   }
-      #   {
-      #     provider = "openrouter";
-      #     model = "openrouter/free";
-      #   }
-      # ];
+      model.provider = "nous"; 
+      fallback_providers = [
+        {
+          provider = "nous";
+          model = "meituan/longcat-2.0:free"; 
+        }
+        {
+          provider = "nous";
+          model = "stepfun/step-3.7-flash:free";
+        }
+        {
+          provider = "openrouter";
+          model = "poolside/laguna-s-2.1:free"; 
+        }
+      ];
+      # auxiliary.compression.model = "poolside/laguna-xs-2.1:free";
     };
   };
   # signal-cli daemon in HTTP mode for the Hermes Signal gateway

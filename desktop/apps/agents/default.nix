@@ -7,5 +7,6 @@
   imports = [
     ./opencode.nix
     ./hermes-agent.nix
+    ./agents-md.nix
   ];
 }
