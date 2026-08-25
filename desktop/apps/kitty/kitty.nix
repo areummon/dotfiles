@@ -9,9 +9,7 @@
     package = pkgs.unstable.kitty;
     font.name = "MesloLG";
 
-    # Everforest Dark Medium, from kovidgoyal/kitty-themes
-    # (file name without .conf: https://github.com/kovidgoyal/kitty-themes)
-    themeFile = "everforest_dark_medium";
+    themeFile = "everforest_dark_hard";
 
     settings = {
       background_opacity = "0.85";

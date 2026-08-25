@@ -1,4 +1,4 @@
-package.path = package.path .. ";/home/moka/nixos-config/desktop/apps/neovim/LuaSnip/?.lua"
+package.path = package.path .. ";" .. vim.fn.stdpath("config") .. "/LuaSnip/?.lua"
 local helpers = require("luasnip-helper-funcs")
 local get_visual = helpers.get_visual
 

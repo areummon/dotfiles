@@ -86,11 +86,11 @@
       };
       git_branch = {
         symbol = "";
-        style = "bg:#bccba3";
+        style = "bg:#bccba3 fg:#3d4a30";
         format = "[ $symbol $branch ]($style)";
       };
       git_status = {
-        style = "bg:#bccba3";
+        style = "bg:#bccba3 fg:#3d4a30";
         format = "[$all_status$ahead_behind ]($style)";
       };
       golang = {

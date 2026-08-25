@@ -41,8 +41,20 @@
     ];
     extraPackages = [
       pkgs.unstable.ripgrep
+      pkgs.unstable.tinymist
     ];
-    extraConfig = builtins.readFile ./init.vim;
-    initLua = builtins.readFile ./init.lua;
+    initLua =
+      builtins.readFile ./init.lua
+      + ''
+        vim.opt.runtimepath:append("${./.}")
+      '';
+  };
+  xdg.configFile."nvim/lua" = {
+    source = ./lua;
+    recursive = true;
+  };
+  xdg.configFile."nvim/LuaSnip" = {
+    source = ./LuaSnip;
+    recursive = true;
   };
 }

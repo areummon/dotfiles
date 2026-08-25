@@ -1,36 +1,38 @@
+-- Neovim entry point
+require("options")
+require("keymaps")
+
 -- Indentation lua configuration
-require("ibl").setup{ indent = { char = "┊" } }
+require("ibl").setup({ indent = { char = "┊" } })
 
 -- mini.files configuration
-require('mini.icons').setup()
-require('mini.files').setup()
+require("mini.icons").setup()
+require("mini.files").setup()
 
 -- Telescope configuration
-require('telescope').setup {
- defaults = {
- },
-pickers = {
-   find_files = {
+require("telescope").setup {
+  defaults = {
+  },
+  pickers = {
+    find_files = {
       find_command = { "fd", "--hidden", "--type", "f", "--strip-cwd-prefix", }
-   },
- }
+    },
+  },
 }
 
--- To get fzf loaded and working with telescope, you need to call
--- load_extension, somewhere after setup function:
-require('telescope').load_extension('fzf')
+require("telescope").load_extension("fzf")
 
--- Completition and LSP configuration
+-- Completion and LSP configuration
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-vim.lsp.enable({'rust_analyzer', 'hls', 'clangd', 'zls'})
+vim.lsp.enable({ "rust_analyzer", "hls", "clangd", "zls", "tinymist" })
 
 -- luasnip setup
-local luasnip = require 'luasnip'
+local luasnip = require("luasnip")
 
 -- nvim-cmp setup
-local cmp = require 'cmp'
+local cmp = require("cmp")
 cmp.setup {
   snippet = {
     expand = function(args)
@@ -38,15 +40,15 @@ cmp.setup {
     end,
   },
   mapping = cmp.mapping.preset.insert({
-    ['<C-u>'] = cmp.mapping.scroll_docs(-4), -- Up
-    ['<C-d>'] = cmp.mapping.scroll_docs(4), -- Down
+    ["<C-u>"] = cmp.mapping.scroll_docs(-4), -- Up
+    ["<C-d>"] = cmp.mapping.scroll_docs(4), -- Down
     -- C-b (back) C-f (forward) for snippet placeholder navigation.
-    ['<C-Space>'] = cmp.mapping.complete(),
-    ['<CR>'] = cmp.mapping.confirm {
+    ["<C-Space>"] = cmp.mapping.complete(),
+    ["<CR>"] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
     },
-    ['<Tab>'] = cmp.mapping(function(fallback)
+    ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
       elseif luasnip.expand_or_jumpable() then
@@ -54,8 +56,8 @@ cmp.setup {
       else
         fallback()
       end
-    end, { 'i', 's' }),
-    ['<S-Tab>'] = cmp.mapping(function(fallback)
+    end, { "i", "s" }),
+    ["<S-Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
       elseif luasnip.jumpable(-1) then
@@ -63,16 +65,16 @@ cmp.setup {
       else
         fallback()
       end
-    end, { 'i', 's' }),
+    end, { "i", "s" }),
   }),
   sources = {
-    { name = 'nvim_lsp' },
-    { name = 'luasnip' },
+    { name = "nvim_lsp" },
+    { name = "luasnip" },
   },
 }
 
 -- Trouble configuration
-require('trouble').setup()
+require("trouble").setup()
 -- Trouble maps
 vim.keymap.set("n", "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>")
 vim.keymap.set("n", "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>")
@@ -82,33 +84,31 @@ vim.keymap.set("n", "<leader>xL", "<cmd>Trouble loclist toggle<cr>")
 vim.keymap.set("n", "<leader>xQ", "<cmd>Trouble qflist toggle<cr>")
 
 -- everforest and lualine configuration
-vim.g.everforest_background = 'medium'
+vim.g.everforest_background = "hard"
 vim.g.everforest_enable_italic = 1
 vim.g.everforest_disable_background = true
 vim.cmd[[colorscheme everforest]]
 
-require('lualine').setup({
+require("lualine").setup({
   options = {
-    theme = 'everforest'
-  }
+    theme = "everforest",
+  },
 })
 
-require('nvim-autopairs').setup({
-    check_ts = true, 
-    fast_wrap = {}, 
-    disable_filetype = { "TelescopePrompt" },
+require("nvim-autopairs").setup({
+  check_ts = true,
+  fast_wrap = {},
+  disable_filetype = { "TelescopePrompt" },
 })
 
-local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-local cmp = require('cmp')
-
+local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 cmp.event:on(
-  'confirm_done',
+  "confirm_done",
   cmp_autopairs.on_confirm_done()
 )
--- Luasnip configuration for snippets
-luasnip.config.set_config({ -- Setting LuaSnip config
 
+-- LuaSnip configuration
+luasnip.config.set_config({
   -- Enable autotriggered snippets
   enable_autosnippets = true,
 
@@ -116,23 +116,14 @@ luasnip.config.set_config({ -- Setting LuaSnip config
   store_selection_keys = "<Tab>",
 
   -- Text in the repeated node update as typing
-  update_events = 'TextChanged,TextChangedI',
+  update_events = "TextChanged,TextChangedI",
 })
 
--- Tinymist configuration
-vim.keymap.set('n', '<leader>tp', function()
-    local clients = vim.lsp.get_clients({ name = "tinymist" })
-    if #clients > 0 then
-        clients[1]:exec_cmd({ command = "tinymist.startDefaultPreview", title = "Preview" })
-    else
-        print("Tinymist LSP not active")
-    end
-end, { desc = "Typst: Start Tinymist Preview" })
+-- Load snippets
+local snippet_dir = vim.fn.stdpath("config") .. "/LuaSnip"
+require("luasnip.loaders.from_lua").lazy_load({ paths = snippet_dir })
 
--- Identify plaintex as latex
-vim.g.tex_flavor = "latex"
-
--- Load snippets 
-require("luasnip.loaders.from_lua").lazy_load({paths = "~/nixos-config/desktop/apps/neovim/LuaSnip/"})
-
-vim.keymap.set('n', '<Leader>L', '<Cmd>lua require("luasnip.loaders.from_lua").load({paths = "~/nixos-config/desktop/apps/neovim/LuaSnip/"})<CR>')
+vim.keymap.set("n", "<Leader>L", function()
+  require("luasnip.loaders.from_lua").clean()
+  require("luasnip.loaders.from_lua").load({ paths = snippet_dir })
+end, { desc = "Reload LuaSnip snippets" })
