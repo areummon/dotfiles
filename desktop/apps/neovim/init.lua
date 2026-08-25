@@ -81,15 +81,15 @@ vim.keymap.set("n", "<leader>cl", "<cmd>Trouble lsp toggle focus=false win.posit
 vim.keymap.set("n", "<leader>xL", "<cmd>Trouble loclist toggle<cr>")
 vim.keymap.set("n", "<leader>xQ", "<cmd>Trouble qflist toggle<cr>")
 
--- nord and lulaine configuration
-vim.g.nord_disable_background = true 
-require('nord').set()
-
-vim.cmd[[colorscheme nord]]
+-- everforest and lualine configuration
+vim.g.everforest_background = 'medium'
+vim.g.everforest_enable_italic = 1
+vim.g.everforest_disable_background = true
+vim.cmd[[colorscheme everforest]]
 
 require('lualine').setup({
   options = {
-    theme = 'nord'
+    theme = 'everforest'
   }
 })
 

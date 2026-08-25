@@ -14,7 +14,7 @@
     plugins = with pkgs.unstable.vimPlugins; [
       nvim-autopairs
       lualine-nvim
-      nord-nvim
+      everforest
       vimtex
       trouble-nvim
       indent-blankline-nvim

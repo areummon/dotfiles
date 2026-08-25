@@ -376,48 +376,49 @@
       }
     ];
 
-    # Style  (Wallpaper sky-blue theme — transparent + blurred bar)
+    # Style  (Wallpaper greenleaves theme — transparent + blurred bar)
     style = ''
       /* =========================================================
-         Sky Blue palette — sampled from wallpaper
+         Greenleaves palette — sampled from wallpaper
          ─────────────────────────────────────────
+         White wildflowers on black, pale sage-green stems.
          Layers (darkest → lightest):
-           deep-sky    #0e3d9e  dominant royal blue (sky BG)
-           royal       #1a4db5  slightly lighter sky       ← mantle tier
-           cobalt      #2358c0  mid-dark layer             ← base tier
-           azure       #3d6fcc  medium blue                ← surface0 tier
-           sky-mid     #5585d4  lighter blue
-           sky-light   #7aa2db  desaturated light blue     ← accent
-           pale-blue   #a8c4e8  pale sky near clouds
-           cloud-blue  #c8dff2  cloud-shadow blue
-           cloud       #ddeef8  bright cloud
-           white-cloud #eef6fb  brightest cloud highlight  ← foreground
-           grey-mirror #8a96a4  mirror body grey
+           leaf-dark   #232d1e  near-black moss shadow      ← mantle tier
+           fern        #35452b  dark stem green             ← base tier
+           moss        #46583a  mid-dark stem               ← surface0 tier
+           sage-mid    #5a7048  medium sage                 ← medium layer
+           sage        #74895f  lighter sage
+           sage-light  #97ab7e  desaturated light sage      ← accent
+           pale-sage   #bccba3  pale stem highlight
+           cream-mist  #d3ddc2  flower shadow cream
+           cream       #e6ecd8  flower cream
+           flower      #f4f7ee   brightest petal white      ← foreground
+           grey-stem   #9aa38e  mirror body grey-green
          ========================================================= */
 
       /* Raw palette */
-      @define-color deep-sky    #0e3d9e;
-      @define-color royal       #1a4db5;
-      @define-color cobalt      #2358c0;
-      @define-color azure       #3d6fcc;
-      @define-color sky-mid     #5585d4;
-      @define-color sky-light   #7aa2db;
-      @define-color pale-blue   #a8c4e8;
-      @define-color cloud-blue  #c8dff2;
-      @define-color cloud       #ddeef8;
-      @define-color white-cloud #eef6fb;
-      @define-color grey-mirror #8a96a4;
+      @define-color leaf-dark    #232d1e;
+      @define-color fern         #35452b;
+      @define-color moss         #46583a;
+      @define-color sage-mid     #5a7048;
+      @define-color sage         #74895f;
+      @define-color sage-light   #97ab7e;
+      @define-color pale-sage    #bccba3;
+      @define-color cream-mist   #d3ddc2;
+      @define-color cream        #e6ecd8;
+      @define-color flower       #f4f7ee;
+      @define-color grey-stem    #9aa38e;
 
       /* Semantic aliases */
-      @define-color accent      @sky-light;
-      @define-color main-br     @sky-mid;
-      @define-color main-bg     alpha(#0a2d7a, 0.55);
-      @define-color main-fg     @white-cloud;
-      @define-color hover-bg    alpha(@cobalt, 0.60);
-      @define-color hover-fg    alpha(@white-cloud, 0.70);
-      @define-color outline     alpha(@deep-sky, 0.70);
+      @define-color accent      @sage-light;
+      @define-color main-br     @sage;
+      @define-color main-bg     alpha(#141a10, 0.55);
+      @define-color main-fg     @flower;
+      @define-color hover-bg    alpha(@moss, 0.60);
+      @define-color hover-fg    alpha(@flower, 0.70);
+      @define-color outline     alpha(@leaf-dark, 0.70);
 
-      /* State colors — bright enough to pop on blue */
+      /* State colors — bright enough to pop on green */
       @define-color warning     #e8c44a;
       @define-color critical    #e05050;
       @define-color charging    #40c8b0;
@@ -472,7 +473,7 @@
       #waybar > box {
         margin: 4px;
         border-radius: 10px;
-        background-color: alpha(#091e5c, 0.52);
+        background-color: alpha(#0d1208, 0.52);
 
         /* Blur — requires a Hyprland blur rule targeting waybar,
            e.g. in hyprland.conf:
@@ -491,9 +492,9 @@
       }
 
       tooltip {
-        border: 2px solid alpha(@sky-mid, 0.60);
+        border: 2px solid alpha(@sage, 0.60);
         border-radius: 10px;
-        background-color: alpha(#0e3060, 0.82);
+        background-color: alpha(#1a2412, 0.82);
       }
       tooltip > box {
         padding: 0 6px;
@@ -503,18 +504,18 @@
          Left modules
          ========================================================= */
 
-      /* Workspaces  (deep-sky) */
+      /* Workspaces  (leaf-dark) */
       #custom-left_div.1,
       #custom-right_div.1 {
-        color: @deep-sky;
+        color: @leaf-dark;
       }
       #workspaces {
         padding: 0 1px;
-        background-color: @deep-sky;
+        background-color: @leaf-dark;
       }
       #workspaces button.active label,
       #workspaces button.focused label {
-        color: @white-cloud;
+        color: @flower;
       }
 
       /* Window title */
@@ -540,95 +541,95 @@
           • No `background` set      = transparent (bar glass background shows)
 
         CENTER tier order (dark → light → accent → light → dark):
-          transparent → [royal:temp] → [cobalt:mem] → [azure:cpu]
-          → transparent → [sky-light:distro] → transparent
-          → [azure:time+idle] → [cobalt:date] → [royal:tray] → transparent
+          transparent → [fern:temp] → [moss:mem] → [sage-mid:cpu]
+          → transparent → [sage-light:distro] → transparent
+          → [sage-mid:time+idle] → [moss:date] → [fern:tray] → transparent
 
         RIGHT tier order (right to left, dark → mid → light):
-          transparent ← [royal:volume] ← [cobalt:backlight] ← [azure:battery] ← transparent
+          transparent ← [fern:volume] ← [moss:backlight] ← [sage-mid:battery] ← transparent
       */
 
-      /* Temperature  (royal) */
+      /* Temperature  (fern) */
       #custom-left_div.2 {
-        color: @royal;
+        color: @fern;
       }
       #temperature {
-        background-color: @royal;
+        background-color: @fern;
       }
 
-      /* Memory  (cobalt) — bridge from royal → cobalt */
+      /* Memory  (moss) — bridge from fern → moss */
       #custom-left_div.3 {
-        background-color: @royal;
-        color: @cobalt;
+        background-color: @fern;
+        color: @moss;
       }
       #memory {
-        background-color: @cobalt;
+        background-color: @moss;
       }
 
-      /* CPU  (azure) — bridge from cobalt → azure */
+      /* CPU  (sage-mid) — bridge from moss → sage-mid */
       #custom-left_div.4 {
-        background-color: @cobalt;
-        color: @azure;
+        background-color: @moss;
+        color: @sage-mid;
       }
       #cpu {
-        background-color: @azure;
+        background-color: @sage-mid;
       }
       /* left_inv#1: inverse arrow cpu → transparent */
       #custom-left_inv.1 {
-        color: @azure;
+        color: @sage-mid;
       }
 
-      /* Distro icon — sky-light accent pill */
-      /* left_div#5 & right_div#2: transparent → sky-light → transparent */
+      /* Distro icon — sage-light accent pill */
+      /* left_div#5 & right_div#2: transparent → sage-light → transparent */
       #custom-left_div.5,
       #custom-right_div.2 {
-        color: @sky-light;
+        color: @sage-light;
       }
       #custom-distro {
         padding: 0 10px 0 5px;
-        background-color: @sky-light;
-        color: @deep-sky;
+        background-color: @sage-light;
+        color: @leaf-dark;
       }
 
-      /* Idle inhibitor + Time  (azure) */
+      /* Idle inhibitor + Time  (sage-mid) */
       /* right_inv#1: transparent → azure */
       #custom-right_inv.1 {
-        color: @azure;
+        color: @sage-mid;
       }
       #idle_inhibitor {
-        background-color: @azure;
+        background-color: @sage-mid;
       }
       #clock.time {
         padding-right: 6px;
-        background-color: @azure;
+        background-color: @sage-mid;
       }
 
-      /* Date  (cobalt) — bridge from azure → cobalt */
+      /* Date  (moss) — bridge from sage-mid → moss */
       #custom-right_div.3 {
-        background-color: @cobalt;
-        color: @azure;
+        background-color: @moss;
+        color: @sage-mid;
       }
       #clock.date {
         padding-left: 6px;
-        background-color: @cobalt;
+        background-color: @moss;
       }
 
-      /* Tray: network / bluetooth  (royal) — bridge from cobalt → royal */
+      /* Tray: network / bluetooth  (fern) — bridge from moss → fern */
       #custom-right_div.4 {
-        background-color: @royal;
-        color: @cobalt;
+        background-color: @fern;
+        color: @moss;
       }
       #network {
-        background-color: @royal;
+        background-color: @fern;
         padding: 0 6px 0 4px;
       }
       #bluetooth {
-        background-color: @royal;
+        background-color: @fern;
         padding: 0 5px;
       }
-      /* right_div#5: royal → transparent */
+      /* right_div#5: fern → transparent */
       #custom-right_div.5 {
-        color: @royal;
+        color: @fern;
       }
 
       /* =========================================================
@@ -640,46 +641,46 @@
         padding: 0 12px;
       }
 
-      /* Volume  (royal) — transparent → royal */
+      /* Volume  (fern) — transparent → royal */
       #custom-left_div.6 {
-        color: @royal;
+        color: @fern;
       }
       #pulseaudio,
       #wireplumber {
-        background-color: @royal;
+        background-color: @fern;
       }
 
-      /* Backlight  (cobalt) — bridge from royal → cobalt */
+      /* Backlight  (moss) — bridge from fern → moss */
       #custom-left_div.7 {
-        background-color: @royal;
-        color: @cobalt;
+        background-color: @fern;
+        color: @moss;
       }
       #backlight {
-        background-color: @cobalt;
+        background-color: @moss;
       }
 
-      /* Battery  (azure) — bridge from cobalt → azure */
+      /* Battery  (sage-mid) — bridge from moss → sage-mid */
       #custom-left_div.8 {
-        background-color: @cobalt;
-        color: @azure;
+        background-color: @moss;
+        color: @sage-mid;
       }
       #battery {
-        background-color: @azure;
+        background-color: @sage-mid;
       }
       /* left_inv#2: azure → transparent */
       #custom-left_inv.2 {
-        color: @azure;
+        color: @sage-mid;
       }
 
       /* Power menu */
       #custom-power {
         border-radius: 16px;
         padding: 0 19px 0 16px;
-        color: @sky-light;
+        color: @sage-light;
       }
       #custom-power:hover {
-        background-color: alpha(@azure, 0.70);
-        color: @white-cloud;
+        background-color: alpha(@sage-mid, 0.70);
+        color: @flower;
       }
 
       /* =========================================================

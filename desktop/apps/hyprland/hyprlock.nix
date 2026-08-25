@@ -12,7 +12,7 @@
         screencopy_mode = 0;
       };
       background = {
-        path = "${config.home.homeDirectory}/Pictures/wallpapers/background.jpg";
+        path = "${config.home.homeDirectory}/Pictures/wallpapers/lockwallpaper1.jpg";
         outline_thickness = 0;
         blur_passes = 1;
         blur_size = 3;

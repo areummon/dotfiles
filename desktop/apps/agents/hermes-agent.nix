@@ -14,11 +14,11 @@
     ];
     settings = {
       model.default = "stealth/ox-alpha";
-      model.provider = "nous"; 
+      model.provider = "nous";
       fallback_providers = [
         {
           provider = "nous";
-          model = "meituan/longcat-2.0:free"; 
+          model = "meituan/longcat-2.0:free";
         }
         {
           provider = "nous";
@@ -26,7 +26,7 @@
         }
         {
           provider = "openrouter";
-          model = "poolside/laguna-s-2.1:free"; 
+          model = "poolside/laguna-s-2.1:free";
         }
       ];
       # auxiliary.compression.model = "poolside/laguna-xs-2.1:free";

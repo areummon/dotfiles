@@ -12,7 +12,7 @@
       wallpaper = [
         {
           monitor = "eDP-1";
-          path = "${config.home.homeDirectory}/Pictures/wallpapers/sky4.png";
+          path = "${config.home.homeDirectory}/Pictures/wallpapers/greenleaves.jpg";
         }
       ];
     };
