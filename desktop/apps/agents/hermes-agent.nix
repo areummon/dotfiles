@@ -13,13 +13,9 @@
       "${config.home.homeDirectory}/.secrets/signal.env"
     ];
     settings = {
-      model.default = "stealth/ox-alpha";
+      model.default = "meituan/longcat-2.0:free";
       model.provider = "nous";
       fallback_providers = [
-        {
-          provider = "nous";
-          model = "meituan/longcat-2.0:free";
-        }
         {
           provider = "nous";
           model = "stepfun/step-3.7-flash:free";
@@ -28,8 +24,11 @@
           provider = "openrouter";
           model = "poolside/laguna-s-2.1:free";
         }
+        {
+          provider = "openrouter";
+          model = "z-ai/glm-5.3-flash";
+        }
       ];
-      # auxiliary.compression.model = "poolside/laguna-xs-2.1:free";
     };
   };
   # signal-cli daemon in HTTP mode for the Hermes Signal gateway

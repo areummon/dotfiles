@@ -8,7 +8,7 @@
     enable = true;
     package = pkgs.opencode;
     settings = {
-      model = "openrouter/stealth/ox-alpha";
+      model = "openrouter/z-ai/glm-5.3-flash";
       small_model = "openrouter/poolside/laguna-xs-2.1:free";
       #model = "openrouter/poolside/laguna-s-2.1:free";
       #small_model = "openrouter/poolside/laguna-xs-2.1:free";

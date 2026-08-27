@@ -26,7 +26,7 @@
 
     Ask for explicit confirmation before reading files under:
 
-    - `~/Documents/`, `~/Pictures/`, `~/Downloads/`, '~/Desktop/me/' (personal documents)
+    - `~/Documents/`, `~/Pictures/`, `~/Downloads/`, `~/Desktop/me/` (personal documents)
 
     ## General conduct
 
