@@ -165,6 +165,13 @@
       moka = import ../home-manager/home.nix;
     };
   };
+  # Required with useUserPackages so the HM-declared xdg-desktop-portal
+  # definitions (and portal-provided .desktop files) get linked into the
+  # system environment for the portal broker to find.
+  environment.pathsToLink = [
+    "/share/xdg-desktop-portal"
+    "/share/applications"
+  ];
 
   # UWSM configuration
   programs.hyprland.withUWSM = true;

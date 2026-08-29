@@ -86,6 +86,16 @@
     HYPRSHOT_DIR = "${config.home.homeDirectory}/Pictures/Screenshots";
   };
 
+  # NIX_XDG_DESKTOP_PORTAL_DIR to the user profile (home-manager issue
+  # #7124), so the broker only sees portals declared in home-manager.
+  # hyprland handles screenshot/screencast; gtk provides FileChooser etc.
+  # (the dialogs flatpak apps use for nautilus browsing, gthumb, ...).
+  xdg.portal = {
+    enable = true;
+    extraPortals = [pkgs.xdg-desktop-portal-gtk];
+    config.hyprland.default = ["hyprland" "gtk"];
+  };
+
   # Configuration for Flatpak
   home.sessionPath = [
     "$HOME/.local/share/flatpak/exports/bin"

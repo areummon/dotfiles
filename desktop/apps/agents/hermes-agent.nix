@@ -4,10 +4,11 @@
   config,
   ...
 }: {
+  programs.hermes-agent.enable = true;
+
   services.hermes-agent = {
     enable = true;
     gateway.enable = true;
-    installPackage = true;
     environmentFiles = [
       "${config.home.homeDirectory}/.secrets/openrouter.env"
       "${config.home.homeDirectory}/.secrets/signal.env"
